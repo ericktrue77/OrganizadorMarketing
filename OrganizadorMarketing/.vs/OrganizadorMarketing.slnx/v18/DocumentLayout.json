@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{AAD013B3-4672-4A93-9E65-E925BE18FD4B}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\organizadormarketing.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{AAD013B3-4672-4A93-9E65-E925BE18FD4B}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\organizadormarketing.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrganizadorMarketing",
-              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\OrganizadorMarketing.csproj",
-              "RelativeDocumentMoniker": "OrganizadorMarketing\\OrganizadorMarketing.csproj",
-              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\OrganizadorMarketing.csproj",
-              "RelativeToolTip": "OrganizadorMarketing\\OrganizadorMarketing.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-23T18:23:48.014Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
