@@ -23,11 +23,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Data\" />
     <Folder Include="DTOs\" />
     <Folder Include="Auth\" />
-    <Folder Include="Enums\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

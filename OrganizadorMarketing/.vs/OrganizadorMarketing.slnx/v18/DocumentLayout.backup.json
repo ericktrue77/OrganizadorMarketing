@@ -1,12 +1,173 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\enums\\rolesusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\enums\\rolesusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\enums\\tareaestado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\enums\\tareaestado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\enums\\tareaprioridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\enums\\tareaprioridad.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\models\\organizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\models\\organizacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\models\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\models\\tareas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\models\\tareas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|c:\\users\\perseverancia\\desktop\\pruebatech\\organizadormarketing\\organizadormarketing\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4480DA2-9513-319E-76DC-5363CB919D08}|OrganizadorMarketing\\OrganizadorMarketing.csproj|solutionrelative:organizadormarketing\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Program.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Program.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Program.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:39:09.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:38:35.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Tareas.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Tareas.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Models\\Tareas.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Tareas.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Models\\Tareas.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:37:24.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Usuarios.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Models\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Usuarios.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Models\\Usuarios.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowBAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:37:18.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Organizacion.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Organizacion.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Models\\Organizacion.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Models\\Organizacion.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Models\\Organizacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:37:11.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TareaPrioridad.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\TareaPrioridad.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Enums\\TareaPrioridad.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\TareaPrioridad.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Enums\\TareaPrioridad.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:35:28.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TareaEstado.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\TareaEstado.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Enums\\TareaEstado.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\TareaEstado.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Enums\\TareaEstado.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:35:18.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RolesUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\RolesUsuario.cs",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\Enums\\RolesUsuario.cs",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\Enums\\RolesUsuario.cs",
+              "RelativeToolTip": "OrganizadorMarketing\\Enums\\RolesUsuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T18:35:11.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\appsettings.json",
+              "RelativeDocumentMoniker": "OrganizadorMarketing\\appsettings.json",
+              "ToolTip": "C:\\Users\\PERSEVERANCIA\\Desktop\\PruebaTech\\OrganizadorMarketing\\OrganizadorMarketing\\appsettings.json",
+              "RelativeToolTip": "OrganizadorMarketing\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-23T18:34:59.516Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
