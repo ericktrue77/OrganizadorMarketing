@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="OrganizadorMarketing.Tests/OrganizadorMarketing.Tests.csproj" Id="2e6e4e02-e194-4ddb-906e-75a479a39130" />
   <Project Path="OrganizadorMarketing/OrganizadorMarketing.csproj" />
 </Solution>
