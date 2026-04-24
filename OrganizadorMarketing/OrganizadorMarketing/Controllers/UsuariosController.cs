@@ -18,10 +18,12 @@ namespace OrganizadorMarketing.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UsuariosController> _logger;
 
-        public UsuariosController(ApplicationDbContext context)
+        public UsuariosController(ApplicationDbContext context, ILogger<UsuariosController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET all por organizacion
@@ -89,6 +91,7 @@ namespace OrganizadorMarketing.Controllers
             _context.Usuarios.Add(user);
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Usuario creado: {UserId} en organización {OrgId}", user.Id, orgId);
             return Ok(new { message = "Usuario creado", user.Id });
         }
 
@@ -137,6 +140,7 @@ namespace OrganizadorMarketing.Controllers
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Usuario actualizado: {UserId}", user.Id);
             return Ok(new { message = "Usuario actualizado" });
         }
 
@@ -169,6 +173,7 @@ namespace OrganizadorMarketing.Controllers
             _context.Usuarios.Remove(user);
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Usuario eliminado: {UserId}", user.Id);
             return Ok(new { message = "Usuario eliminado" });
         }
     }

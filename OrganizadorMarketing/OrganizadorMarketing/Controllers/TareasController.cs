@@ -19,10 +19,12 @@ namespace OrganizadorMarketing.Controllers
     public class TareasController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<TareasController> _logger;
 
-        public TareasController(ApplicationDbContext context)
+        public TareasController(ApplicationDbContext context, ILogger<TareasController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
 
@@ -213,7 +215,7 @@ namespace OrganizadorMarketing.Controllers
                 LimiteTarea = task.LimiteTarea,
                 Asignado = task.Asignadoa.Correo
             };
-
+            _logger.LogInformation("Tarea creada: {TaskId} por usuario {UserId}", task.Id, userId);
             return Ok(response);
         }
 
@@ -262,6 +264,7 @@ namespace OrganizadorMarketing.Controllers
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Tarea actualizada: {TaskId}", task.Id);
             return Ok(new { message = "Tarea actualizada" });
         }
 
@@ -285,6 +288,7 @@ namespace OrganizadorMarketing.Controllers
             _context.Tareas.Remove(task);
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Tarea eliminada: {TaskId}", task.Id);
             return Ok(new { message = "Tarea eliminada" });
         }
 
@@ -318,6 +322,7 @@ namespace OrganizadorMarketing.Controllers
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("Estado actualizado: Tarea {TaskId} a {Estado}", task.Id, task.Estado);
             return Ok(new { message = "Estado actualizado" });
         }
     }
