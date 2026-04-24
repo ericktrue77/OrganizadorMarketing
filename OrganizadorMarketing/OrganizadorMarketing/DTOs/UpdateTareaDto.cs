@@ -1,4 +1,5 @@
-﻿namespace OrganizadorMarketing.DTOs
+﻿//dto para actualizar tareas
+namespace OrganizadorMarketing.DTOs
 {
     public class UpdateTareaDto
     {

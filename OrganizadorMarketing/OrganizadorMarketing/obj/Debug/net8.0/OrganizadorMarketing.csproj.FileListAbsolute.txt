@@ -256,3 +256,5 @@ C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarket
 C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarketing\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarketing\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarketing\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarketing\obj\Debug\net8.0\OrganizadorMarketing.RazorAssemblyInfo.cache
+C:\Users\PERSEVERANCIA\Desktop\PruebaTech\OrganizadorMarketing\OrganizadorMarketing\obj\Debug\net8.0\OrganizadorMarketing.RazorAssemblyInfo.cs

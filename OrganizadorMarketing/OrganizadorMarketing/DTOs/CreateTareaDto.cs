@@ -1,4 +1,5 @@
-﻿namespace OrganizadorMarketing.DTOs
+﻿//dto para creacion de tareas
+namespace OrganizadorMarketing.DTOs
 {
     public class CreateTareaDto
     {

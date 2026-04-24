@@ -65,21 +65,31 @@ namespace OrganizadorMarketing.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser(CreateUserDto dto)
         {
-            var orgId = int.Parse(User.FindFirst("organizationId").Value);//usuario se crea dentro de su organizacion automaticamente
+            var orgId = int.Parse(User.FindFirst("organizationId").Value);
 
-            //mapeo manual para el dto,, podria usarse automapper o hacer un mapeador manual segun el proyecto y los atributos
+            // validar duplicado
+            var exists = await _context.Usuarios
+                .AnyAsync(u => u.Correo == dto.Correo && u.OrganizacionId == orgId);
+
+            if (exists)
+                return BadRequest("El correo ya está registrado en esta organización");
+
+            // validar rol
+            if (!Enum.TryParse<RolesUsuario>(dto.Rol, true, out var rolEnum))
+                return BadRequest("Rol inválido");
+
             var user = new Usuarios
             {
                 Correo = dto.Correo,
-                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),//password se hashea
-                Rol = Enum.Parse<RolesUsuario>(dto.Rol),//rol viaja como string hacia el enum primero y despues se convierte
-                OrganizacionId = orgId //organizacion obtenida del token
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                Rol = rolEnum,
+                OrganizacionId = orgId
             };
 
             _context.Usuarios.Add(user);
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "Usuario creado", user.Id });//respuesta Ok 200
+            return Ok(new { message = "Usuario creado", user.Id });
         }
 
         //PUT usuarios 
@@ -101,13 +111,29 @@ namespace OrganizadorMarketing.Controllers
             var orgId = int.Parse(User.FindFirst("organizationId").Value);
 
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Id == id && u.OrganizacionId == orgId); //seguro por organizacion
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
-                return NotFound();
+                return NotFound("Usuario no existe");
 
-            user.Correo = dto.Correo;//solo permite editar correo y rol
-            user.Rol = Enum.Parse<RolesUsuario>(dto.Rol);
+            if (user.OrganizacionId != orgId)
+                return BadRequest("El usuario no pertenece a tu organización");
+
+            // validar duplicado
+            var exists = await _context.Usuarios
+                .AnyAsync(u => u.Correo == dto.Correo
+                            && u.OrganizacionId == orgId
+                            && u.Id != id);
+
+            if (exists)
+                return BadRequest("El correo ya está en uso en esta organización");
+
+            // validar rol
+            if (!Enum.TryParse<RolesUsuario>(dto.Rol, true, out var rolEnum))
+                return BadRequest("Rol inválido");
+
+            user.Correo = dto.Correo;
+            user.Rol = rolEnum;
 
             await _context.SaveChangesAsync();
 
@@ -132,12 +158,15 @@ namespace OrganizadorMarketing.Controllers
             var orgId = int.Parse(User.FindFirst("organizationId").Value);
 
             var user = await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Id == id && u.OrganizacionId == orgId);//no permite borrar users de otra organizacion
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
-                return NotFound();
+                return NotFound("Usuario no existe");
 
-            _context.Usuarios.Remove(user);//eliminacion
+            if (user.OrganizacionId != orgId)
+                return BadRequest("El usuario no pertenece a tu organización");
+
+            _context.Usuarios.Remove(user);
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Usuario eliminado" });

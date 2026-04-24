@@ -1,4 +1,5 @@
-﻿namespace OrganizadorMarketing.DTOs
+﻿//dto para revisar estatus de las tareas
+namespace OrganizadorMarketing.DTOs
 {
     public class TareaStatusDto
     {
