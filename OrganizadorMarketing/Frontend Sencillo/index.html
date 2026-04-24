@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrganizadorMarketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        turquesa: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <div id="app" class="relative z-10">
+        <!-- Login View -->
+        <div id="login-view" class="min-h-screen flex items-center justify-center">
+            <div class="login-container">
+                <div class="matrix-decoration">◈</div>
+                <h1 class="text-2xl font-bold text-turquoise-400 mb-2 text-center matrix-text">OrganizadorMarketing</h1>
+                <p class="text-turquoise-600 text-center mb-8">Sistema de Gestión de Tareas</p>
+                
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Correo Electrónico</label>
+                        <input type="email" id="login-email" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none transition-colors"
+                            placeholder="correo@ejemplo.com">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Contraseña</label>
+                        <input type="password" id="login-password" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none transition-colors"
+                            placeholder="••••••">
+                    </div>
+                    <div id="login-error" class="hidden text-red-400 text-sm text-center"></div>
+                    <button type="submit"
+                        class="w-full py-3 bg-turquoise-600 hover:bg-turquoise-500 text-turquoise-900 font-bold rounded-lg transition-all matrix-glow">
+                        ACCEDER
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-turquoise-800">
+                    <p class="text-turquoise-500 text-xs text-center">Credenciales de prueba:</p>
+                    <div class="mt-2 grid grid-cols-2 gap-2 text-xs">
+                        <div class="bg-black/30 p-2 rounded border border-turquoise-800">
+                            <p class="text-turquoise-400">Admin Alpha</p>
+                            <p class="text-turquoise-600">admin1@alpha.com</p>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded border border-turquoise-800">
+                            <p class="text-turquoise-400">Member Alpha</p>
+                            <p class="text-turquoise-600">member1@alpha.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="hidden min-h-screen">
+            <!-- Header -->
+            <header class="bg-black/80 border-b border-turquoise-700 backdrop-blur-sm fixed w-full z-50">
+                <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                    <div class="flex items-center gap-4">
+                        <span class="matrix-text text-turquoise-400">◈</span>
+                        <h1 class="text-xl font-bold text-turquoise-400">OrganizadorMarketing</h1>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span id="user-info" class="text-turquoise-300 text-sm"></span>
+                        <span id="role-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-turquoise-700 text-black"></span>
+                        <button id="logout-btn" class="text-turquoise-400 hover:text-turquoise-200 transition-colors">
+                            [SALIR]
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="pt-20 pb-8 px-4">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Tabs -->
+                    <div class="flex gap-2 mb-6">
+                        <button class="tab-btn active" data-tab="mis-tareas">Mis Tareas</button>
+                        <button class="tab-btn" data-tab="todas-tareas">Todas las Tareas</button>
+                        <button class="admin-tab-btn hidden" data-tab="usuarios">Usuarios</button>
+                        <button class="admin-tab-btn hidden" data-tab="crear-tarea">Crear Tarea</button>
+                    </div>
+
+                    <!-- Mis Tareas Tab -->
+                    <div id="tab-mis-tareas" class="tab-content active">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-2xl font-bold text-turquoise-400">Mis Tareas</h2>
+                            <button id="btn-crear-mi-tarea" class="matrix-btn">
+                                + Nueva Tarea
+                            </button>
+                        </div>
+                        <div id="mis-tareas-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Todas las Tareas Tab -->
+                    <div id="tab-todas-tareas" class="tab-content hidden">
+                        <h2 class="text-2xl font-bold text-turquoise-400 mb-4">Todas las Tareas</h2>
+                        <div class="filters mb-4 flex gap-4">
+                            <select id="filter-usuario" class="matrix-select">
+                                <option value="">Todos los usuarios</option>
+                            </select>
+                            <select id="filter-estado" class="matrix-select">
+                                <option value="">Todos los estados</option>
+                                <option value="Pendiente">Pendiente</option>
+                                <option value="Processo">Processo</option>
+                                <option value="Completo">Completo</option>
+                            </select>
+                            <select id="filter-prioridad" class="matrix-select">
+                                <option value="">Todas las prioridades</option>
+                                <option value="0">Bajo</option>
+                                <option value="1">Medio</option>
+                                <option value="2">Alto</option>
+                            </select>
+                            <button id="btn-filtrar" class="matrix-btn">Filtrar</button>
+                        </div>
+                        <div id="todas-tareas-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Usuarios Tab (Admin) -->
+                    <div id="tab-usuarios" class="tab-content hidden">
+                        <h2 class="text-2xl font-bold text-turquoise-400 mb-4">Gestión de Usuarios</h2>
+                        <div class="mb-4 flex justify-end">
+                            <button id="btn-crear-usuario" class="matrix-btn">
+                                + Nuevo Usuario
+                            </button>
+                        </div>
+                        <div id="usuarios-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Crear Tarea Tab (Admin) -->
+                    <div id="tab-crear-tarea" class="tab-content hidden">
+                        <h2 class="text-2xl font-bold text-turquoise-400 mb-4">Crear Nueva Tarea</h2>
+                        <form id="crear-tarea-form" class="max-w-xl space-y-4">
+                            <div>
+                                <label class="block text-turquoise-300 mb-2">Título</label>
+                                <input type="text" id="tarea-titulo" required
+                                    class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-turquoise-300 mb-2">Descripción</label>
+                                <textarea id="tarea-descripcion" rows="3" required
+                                    class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-turquoise-300 mb-2">Asignar a</label>
+                                <select id="tarea-asignado" required
+                                    class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                                    <option value="">Seleccionar usuario</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-turquoise-300 mb-2">Prioridad</label>
+                                <select id="tarea-prioridad" required
+                                    class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                                    <option value="0">Bajo</option>
+                                    <option value="1">Medio</option>
+                                    <option value="2">Alto</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-turquoise-300 mb-2">Fecha límite (opcional)</label>
+                                <input type="datetime-local" id="tarea-fecha"
+                                    class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            </div>
+                            <div id="crear-tarea-error" class="hidden text-red-400 text-sm"></div>
+                            <button type="submit" class="matrix-btn">
+                                Crear Tarea
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modal: Crear Usuario (Admin) -->
+        <div id="modal-crear-usuario" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="text-xl font-bold text-turquoise-400 mb-4">Crear Nuevo Usuario</h3>
+                <form id="crear-usuario-form" class="space-y-4">
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Correo</label>
+                        <input type="email" id="usuario-correo" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Contraseña</label>
+                        <input type="password" id="usuario-password" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Rol</label>
+                        <select id="usuario-rol" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            <option value="Member">Member</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                    <div id="crear-usuario-error" class="hidden text-red-400 text-sm"></div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="matrix-btn flex-1">Crear</button>
+                        <button type="button" class="matrix-btn-secondary flex-1" onclick="closeModal('modal-crear-usuario')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal: Editar Usuario (Admin) -->
+        <div id="modal-editar-usuario" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="text-xl font-bold text-turquoise-400 mb-4">Editar Usuario</h3>
+                <form id="editar-usuario-form" class="space-y-4">
+                    <input type="hidden" id="editar-usuario-id">
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Correo</label>
+                        <input type="email" id="editar-usuario-correo" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Rol</label>
+                        <select id="editar-usuario-rol" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            <option value="Member">Member</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                    <div id="editar-usuario-error" class="hidden text-red-400 text-sm"></div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="matrix-btn flex-1">Guardar</button>
+                        <button type="button" class="matrix-btn-secondary flex-1" onclick="closeModal('modal-editar-usuario')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal: Crear Mi Tarea (Member) -->
+        <div id="modal-crear-mi-tarea" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="text-xl font-bold text-turquoise-400 mb-4">Crear Nueva Tarea</h3>
+                <form id="crear-mi-tarea-form" class="space-y-4">
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Título</label>
+                        <input type="text" id="mi-tarea-titulo" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Descripción</label>
+                        <textarea id="mi-tarea-descripcion" rows="3" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Prioridad</label>
+                        <select id="mi-tarea-prioridad" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            <option value="0">Bajo</option>
+                            <option value="1">Medio</option>
+                            <option value="2">Alto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Fecha límite (opcional)</label>
+                        <input type="datetime-local" id="mi-tarea-fecha"
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div id="crear-mi-tarea-error" class="hidden text-red-400 text-sm"></div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="matrix-btn flex-1">Crear</button>
+                        <button type="button" class="matrix-btn-secondary flex-1" onclick="closeModal('modal-crear-mi-tarea')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal: Ver/Editar Tarea (Admin) -->
+        <div id="modal-editar-tarea" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="text-xl font-bold text-turquoise-400 mb-4">Editar Tarea</h3>
+                <form id="editar-tarea-form" class="space-y-4">
+                    <input type="hidden" id="editar-tarea-id">
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Título</label>
+                        <input type="text" id="editar-tarea-titulo" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Descripción</label>
+                        <textarea id="editar-tarea-descripcion" rows="3" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Asignar a</label>
+                        <select id="editar-tarea-asignado" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Prioridad</label>
+                        <select id="editar-tarea-prioridad" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            <option value="0">Bajo</option>
+                            <option value="1">Medio</option>
+                            <option value="2">Alto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Estado</label>
+                        <select id="editar-tarea-estado" required
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Processo">Processo</option>
+                            <option value="Completo">Completo</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-turquoise-300 mb-2">Fecha límite</label>
+                        <input type="datetime-local" id="editar-tarea-fecha"
+                            class="w-full px-4 py-3 bg-black/50 border-2 border-turquoise-700 rounded-lg text-turquoise-100 focus:border-turquoise-400 focus:outline-none">
+                    </div>
+                    <div id="editar-tarea-error" class="hidden text-red-400 text-sm"></div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="matrix-btn flex-1">Guardar</button>
+                        <button type="button" class="matrix-btn-secondary flex-1" onclick="closeModal('modal-editar-tarea')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
